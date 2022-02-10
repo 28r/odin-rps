@@ -70,6 +70,3 @@ function game() {
         console.log(`It's a draw.`);
     }
 }
-
-const playerSelection = "rock";
-const computerSelection = computerPlay();
