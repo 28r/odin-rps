@@ -40,6 +40,7 @@ button {
   button:hover {
     background-color: pink;
     box-shadow: blanchedalmond 0 -6px 8px inset;
+    color: blanchedalmond;
     transform: scale(1.125);
   }
   
