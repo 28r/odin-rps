@@ -1,12 +1,12 @@
 #results {
     margin: auto;
-    width: 50%;
+    width: clamp(275px, 50%, 90%);
     border: 3px solid lightpink;
     padding: 10px;
 }
 
 body {
-    font-family: LucidaGrande, Arial, sans-serif;
+    font-family: -apple-system,sans-serif;
     background-color: darkseagreen;
     color: blanchedalmond;
 }
@@ -25,7 +25,7 @@ button {
     font-size: 1.2rem;
     font-weight: 700;
     letter-spacing: -.24px;
-    margin: 0;
+    margin: 5px;
     outline: none;
     padding: 1rem 1.3rem;
     quotes: auto;
@@ -57,4 +57,13 @@ button {
 
   a {
     color: blanchedalmond;
+  }
+
+  html {
+    max-height: 100%;
+  }
+
+  #results {
+    height: clamp(3em, 45vh, 60vh);
+    overflow: auto;
   }

@@ -102,6 +102,7 @@ function playRound(playerSelection) {
         content.textContent = `You won the game!`;
         content.style.cssText = 'font-weight: bold';
         results.appendChild(content);
+        content.scrollIntoView();
         results.appendChild(document.createElement("br"));
         computerScore = 0;
         playerScore = 0;
@@ -113,6 +114,7 @@ function playRound(playerSelection) {
         content.textContent = `You lost the game...`;
         content.style.cssText = 'font-weight: bold';
         results.appendChild(content);
+        content.scrollIntoView();
         results.appendChild(document.createElement("br"));
         computerScore = 0;
         playerScore = 0;
@@ -123,6 +125,7 @@ function playRound(playerSelection) {
         content.classList.add('content');
         content.textContent = `You: ${playerScore} points. Computer: ${computerScore} points`;
         results.appendChild(content);
+        content.scrollIntoView();
         return 0;
     }
 }
