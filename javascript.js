@@ -1,72 +1,126 @@
+const results = document.querySelector('#results');
+
+const rock = document.querySelector('#rock');
+rock.addEventListener('click', () => {
+  playRound(`rock`);
+});
+
+const paper = document.querySelector('#paper');
+paper.addEventListener('click', () => {
+  playRound(`paper`);
+});
+
+const scissors = document.querySelector('#scissors');
+scissors.addEventListener('click', () => {
+  playRound(`scissors`);
+});
+
+playerScore = 0;
+computerScore = 0;
+
 function computerPlay() {
     let array = ['rock', 'paper', 'scissors'];    
     const element = array[Math.floor(Math.random() * array.length)];
     return element;
 }
 
-function playRound(playerSelection, computerSelection) {
-    playerSelection = playerSelection.toLowerCase();
+function playRound(playerSelection) {
+    let xr = document.getElementById("results");
+    if (xr.style.display == 'none') {
+        xr.style.display = 'block';
+    }
+    computerSelection = computerPlay();
     if (playerSelection == 'rock') {
         if (computerSelection == 'rock') {
-            return 'Tie!';
+            const content = document.createElement('div');
+            content.classList.add('content');
+            content.textContent = 'Tie!';
+            results.appendChild(content);
         }
         else if (computerSelection == 'paper') {
-            return `You lose: ${computerSelection} beats ${playerSelection}!`;
+            const content = document.createElement('div');
+            content.classList.add('content');
+            content.textContent = `You lose: ${computerSelection} beats ${playerSelection}!`;
+            results.appendChild(content);
+            computerScore++;
         }
         else if (computerSelection == 'scissors') {
-            return `You win: ${playerSelection} beats ${computerSelection}!`;
+            const content = document.createElement('div');
+            content.classList.add('content');
+            content.textContent = `You win: ${playerSelection} beats ${computerSelection}!`;
+            results.appendChild(content);
+            playerScore++;
         }
     }
     else if (playerSelection == 'paper') {
         if (computerSelection == 'paper') {
-            return 'Tie!';
+            const content = document.createElement('div');
+            content.classList.add('content');
+            content.textContent = 'Tie!';
+            results.appendChild(content);
         }
         else if (computerSelection == 'scissors') {
-            return `You lose: ${computerSelection} beats ${playerSelection}!`;
+            const content = document.createElement('div');
+            content.classList.add('content');
+            content.textContent = `You lose: ${computerSelection} beats ${playerSelection}!`;
+            results.appendChild(content);
+            computerScore++;
         }
         else if (computerSelection == 'rock') {
-            return `You win: ${playerSelection} beats ${computerSelection}!`;
+            const content = document.createElement('div');
+            content.classList.add('content');
+            content.textContent = `You win: ${playerSelection} beats ${computerSelection}!`;
+            results.appendChild(content);
+            playerScore++;
         }
     }
     else if (playerSelection == 'scissors') {
         if (computerSelection == 'scissors') {
-            return 'Tie!';
+            const content = document.createElement('div');
+            content.classList.add('content');
+            content.textContent = 'Tie!';
+            results.appendChild(content);
         }
         else if (computerSelection == 'rock') {
-            return `You lose: ${computerSelection} beats ${playerSelection}!`;
+            const content = document.createElement('div');
+            content.classList.add('content');
+            content.textContent = `You lose: ${computerSelection} beats ${playerSelection}!`;
+            results.appendChild(content);
+            computerScore++;
         }
         else if (computerSelection == 'paper') {
-            return `You win: ${playerSelection} beats ${computerSelection}!`;
-        }
-    }
-}
-
-function game() {
-    playerScore = 0;
-    computerScore = 0;
-    for (let i = 0; i < 5; i++) {
-        let choice = window.prompt(`Round ${i + 1}. What do you choose: rock, paper or scissors?`);
-        result = playRound(choice, computerPlay() );
-        console.log(result);
-        if (result.toLowerCase().indexOf("tie") >= 0) {
-            continue;
-        }
-        else if (result.toLowerCase().indexOf("lose") >= 0) {
-            computerScore++;
-            continue;
-        }
-        else if (result.toLowerCase().indexOf("win") >= 0) {
+            const content = document.createElement('div');
+            content.classList.add('content');
+            content.textContent = `You win: ${playerSelection} beats ${computerSelection}!`;
+            results.appendChild(content);
             playerScore++;
-            continue;
         }
     }
-    if (playerScore > computerScore) {
-        console.log('You won more rounds than the computer!');
+    if (playerScore == 5) {
+        const content = document.createElement('div');
+        content.classList.add('content');
+        content.textContent = `You won the game!`;
+        content.style.cssText = 'font-weight: bold';
+        results.appendChild(content);
+        computerScore = 0;
+        playerScore = 0;
+        return 0;
     }
-    else if (computerScore > playerScore) {
-        console.log('You lost more rounds than the computer...');
+    else if (computerScore == 5) {
+        const content = document.createElement('div');
+        content.classList.add('content');
+        content.textContent = `You lost the game...`;
+        content.style.cssText = 'font-weight: bold';
+        results.appendChild(content);
+        computerScore = 0;
+        playerScore = 0;
+        return 0;
     }
     else {
-        console.log(`It's a draw.`);
+        const content = document.createElement('div');
+        content.classList.add('content');
+        content.textContent = `You: ${playerScore} points. Computer: ${computerScore} points`;
+        results.appendChild(content);
+        return 0;
     }
 }

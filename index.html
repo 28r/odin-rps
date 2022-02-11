@@ -4,11 +4,19 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="javascript.js"></script>
+    <script src="javascript.js" defer></script>
+    <link rel="stylesheet" href="styles.css">
     <title>Document</title>
 </head>
 <body>
-    <h1>Rock Paper Scissors</h1>
-    <h2>Call "game()" to play on the console!</h2>
+    <h1 style="text-align: center">Rock Paper Scissors</h1>
+    <h2 style="text-align: center">First to 5 wins!</h2>
+    <div style="text-align: center">
+        <button type="submit" id="rock">Rock</button>
+        <button type="submit" id="paper">Paper</button>
+        <button type="submit" id="scissors">Scissors</button>
+    </div>
+    <br>
+    <div id="results" style="display: none"></div>
 </body>
 </html>
